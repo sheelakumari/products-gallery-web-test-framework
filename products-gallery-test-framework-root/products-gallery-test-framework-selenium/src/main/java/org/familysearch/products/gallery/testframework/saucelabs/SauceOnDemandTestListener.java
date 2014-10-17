@@ -4,7 +4,6 @@ import com.saucelabs.common.SauceOnDemandAuthentication;
 import com.saucelabs.common.SauceOnDemandSessionIdProvider;
 import com.saucelabs.common.Utils;
 import com.saucelabs.saucerest.SauceREST;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import org.testng.ITestContext;
@@ -67,7 +66,7 @@ public class SauceOnDemandTestListener extends TestListenerAdapter {
     public void onTestStart(ITestResult result) {
         super.onTestStart(result);
 
-        if (result.getInstance() instanceof SauceOnDemandSessionIdProvider) {
+        if (result.getInstance()instanceof SauceOnDemandSessionIdProvider) {
             this.sessionIdProvider = (SauceOnDemandSessionIdProvider) result.getInstance();
             //log the session id to the system out
             if (sessionIdProvider.getSessionId() != null) {
